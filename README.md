@@ -9,10 +9,12 @@ sudo ubuntu-drivers list
 sudo ubuntu-drivers list --gpgpu
 
 
-ubuntu-drivers devices
-# Pick the recommended, e.g. nvidia-driver-550 (or 555/560+ if shown as "recommended")
-
+# install latest driver for your setep. Author used 580 at time of writing but yours may be different. Check compatibility based on your card.
 sudo apt install -y nvidia-driver-580
+# cleanup leftover dependencies
+sudo apt autoremove -y
+
+
 sudo reboot
 
 ```
