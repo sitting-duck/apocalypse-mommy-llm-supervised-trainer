@@ -1,0 +1,48 @@
+[
+  {
+    "query": "how to purify flood water",
+    "candidates": [
+      {
+        "passage": "Boil water for 1 minute (3 at altitudes >2,000m).",
+        "label": 1
+      },
+      {
+        "passage": "Unscented bleach 8 drops per gallon; wait 30 minutes.",
+        "label": 1
+      },
+      {
+        "passage": "Ham radio licenses are issued by the FCC.",
+        "label": 0
+      },
+      {
+        "passage": "Use a ceramic filter rated 0.2 microns; replace elements regularly.",
+        "label": 1
+      },
+      {
+        "passage": "A solar panel kit can keep phones charged.",
+        "label": 0
+      }
+    ]
+  },
+  {
+    "query": "stop bleeding fast",
+    "candidates": [
+      {
+        "passage": "Apply direct pressure; consider tourniquet if severe.",
+        "label": 1
+      },
+      {
+        "passage": "Boiling water kills pathogens.",
+        "label": 0
+      },
+      {
+        "passage": "QuikClot gauze can help with heavy bleeding.",
+        "label": 1
+      },
+      {
+        "passage": "Rice and beans store well in buckets.",
+        "label": 0
+      }
+    ]
+  }
+]

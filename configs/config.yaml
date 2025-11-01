@@ -1,0 +1,25 @@
+seed: 42
+model:
+  name: cross-encoder/ms-marco-MiniLM-L-6-v2
+  num_labels: 1
+train:
+  train_path: data/rerank_train.jsonl
+  dev_path: data/rerank_dev.jsonl
+  epochs: 2
+  batch_size: 16
+  lr: 2.0e-5
+  warmup_ratio: 0.1
+  output_dir: outputs/model
+  save_best: true
+eval:
+  candidates_path: data/rerank_eval_candidates.json
+  k: 10
+  mrr_k: 10
+  ndcg_k: 10
+  recall_k: 5
+  out_json: outputs/metrics.json
+  out_scores_csv: outputs/scores.csv
+plots:
+  mrr_bar_path: outputs/mrr_bar.png
+  ndcg_curve_path: outputs/ndcg_curve.png
+  score_hist_path: outputs/score_hist.png
