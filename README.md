@@ -62,7 +62,10 @@ CUDA available: True
 GPU: NVIDIA GeForce RTX 3080
 
 ```
-
+install python deps
+```bash
+pip install -r requirements.txt
+```
 
 
 
