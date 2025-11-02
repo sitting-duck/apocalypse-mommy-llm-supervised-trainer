@@ -64,11 +64,36 @@ GPU: NVIDIA GeForce RTX 3080
 ```
 install python deps
 ```bash
+pip install rank_bm25
+
 pip install -r requirements.txt
 ```
 
 
+### beef up the training dataset with the Survival Corpus
+```bash
+# clone upstream outside or in ./external (but ignored)
+git clone https://github.com/PR0M3TH3AN/Survival-Data.git external/Survival-Data
 
+pip install beautifulsoup4 pdfminer.six
+sudo apt install ocrmypdf
+
+# OCR pass (only when needed): 
+# ocrmypdf --skip-text in.pdf out.pdf
+
+# (build corpus + queries with our scripts)
+python scripts/build_corpus_from_survival_repo.py --src external/Survival-Data --out data/corpus.jsonl
+python scripts/inspect_corpus.py --file data/corpus.jsonl --sample 8
+python scripts/clean_rechunk_corpus.py --infile data/corpus.jsonl --outfile data/corpus_clean.jsonl --max_tokens 180
+python scripts/make_rerank_data_from_corpus.py --corpus data/corpus_clean.jsonl --queries data/queries.jsonl --top_k 20
+
+
+python scripts/make_queries_from_survival_repo.py  --src external/Survival-Data --out data/queries.jsonl
+
+# record the exact upstream commit you used
+git -C external/Survival-Data rev-parse HEAD > data/source_commit.txt
+
+```
 
 
 
