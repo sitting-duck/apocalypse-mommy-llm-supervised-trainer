@@ -1,5 +1,7 @@
 # apocalypse-mommy-llm-supervised-trainer
 
+linux only
+
 switch to NVIDIA’s proprietary driver so PyTorch can use the GPU.
 ```bash
 sudo apt update
