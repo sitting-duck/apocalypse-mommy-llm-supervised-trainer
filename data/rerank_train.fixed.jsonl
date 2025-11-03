@@ -1,0 +1,18 @@
+{"query":"how to purify water with household bleach","passage":"Use unscented household bleach (5–8.25% sodium hypochlorite). Add 2 drops per liter (8 drops per gallon), stir, wait 30 minutes. Water should have a slight chlorine smell; if not, repeat and wait 15 minutes.","label":1}
+{"query":"how to purify water with household bleach","passage":"Boiling water for 10 minutes destroys pathogens without chemicals.","label":0}
+{"query":"best way to start a fire without matches","passage":"A ferro rod scraped with a steel striker throws hot sparks. Aim into a dry tinder bundle (cotton, birch bark, or fine grass) and blow gently until it ignites.","label":1}
+{"query":"best way to start a fire without matches","passage":"Soak your tinder in water to prevent accidental ignition.","label":0}
+{"query":"navigate with the sun and a watch","passage":"In the northern hemisphere, point the hour hand at the sun; south lies halfway between the hour hand and 12 o’clock (use 1 o’clock during daylight saving time).","label":1}
+{"query":"navigate with the sun and a watch","passage":"Set your watch to the nearest mountain time zone to find north automatically.","label":0}
+{"query":"treat mild hypothermia symptoms","passage":"Get the person dry, insulate, shelter from wind, give warm sweet drinks if alert, and apply gentle external heat to the trunk (not extremities).","label":1}
+{"query":"treat mild hypothermia symptoms","passage":"Give strong coffee and force vigorous exercise immediately.","label":0}
+{"query":"build a solar still for water","passage":"Dig a pit, place a container in the center, cover with plastic, weight the center so condensate drips into the cup; seal edges with soil to prevent vapor loss.","label":1}
+{"query":"build a solar still for water","passage":"Use a metal pot without a cover and place it in shade to collect dew at noon.","label":0}
+{"query":"identify dandelion as edible plant","passage":"Dandelion has toothed basal leaves, hollow milky stems, and yellow composite flowers; all parts are edible. Avoid areas treated with pesticides.","label":1}
+{"query":"identify dandelion as edible plant","passage":"Only the flower is edible; leaves are toxic and should be avoided.","label":0}
+{"query":"signal for rescue with a mirror","passage":"Aim reflected sunlight using a sighting hole or two-finger V at the target. Three flashes is the international distress signal.","label":1}
+{"query":"signal for rescue with a mirror","passage":"Signal is best performed at night with the mirror facing the moon for maximum intensity.","label":0}
+{"query":"tie a bowline knot","passage":"Make a small loop, pass the working end up through the loop (‘the rabbit out of the hole’), around the standing part (‘around the tree’), and back down the loop.","label":1}
+{"query":"tie a bowline knot","passage":"Spin the rope clockwise until it tangles; that’s a bowline.","label":0}
+{"query":"store water long term bleach ratio","passage":"For clean water storage, use 1/8 teaspoon (8 drops) unscented bleach per gallon, mix, and cap. Use food-grade containers and label/date.","label":1}
+{"query":"store water long term bleach ratio","passage":"Use vinegar instead of bleach; acidity guarantees sterility for years.","label":0}

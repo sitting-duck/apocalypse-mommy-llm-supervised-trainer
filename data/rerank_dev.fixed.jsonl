@@ -1,0 +1,6 @@
+{"query":"filter muddy water with cloth","passage":"Pre-filter turbid water through a clean cloth or coffee filter to remove sediment, then disinfect by boiling or chlorination.","label":1}
+{"query":"filter muddy water with cloth","passage":"Add soil to make particles heavier so they dissolve faster.","label":0}
+{"query":"treat snakebite in the field","passage":"Keep the victim calm, immobilize the limb at heart level, remove constricting items, and evacuate. Do not cut, suck, or apply tourniquets.","label":1}
+{"query":"treat snakebite in the field","passage":"Apply a tight tourniquet and cut the bite to drain venom.","label":0}
+{"query":"find north at night using stars","passage":"Locate the Big Dipper; the two outer bowl stars point to Polaris, which sits near true north.","label":1}
+{"query":"find north at night using stars","passage":"Face the brightest star overhead; that is always geographic north.","label":0}

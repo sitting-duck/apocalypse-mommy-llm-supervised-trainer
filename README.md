@@ -67,6 +67,9 @@ install python deps
 pip install rank_bm25
 
 pip install -r requirements.txt
+pip install -U "sentence-transformers>=3.0.0"
+pip install datasets
+pip install transformers[torch]
 ```
 
 
