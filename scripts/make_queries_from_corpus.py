@@ -1,10 +1,10 @@
-i#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 make_queries_from_corpus.py
 - Read a cleaned corpus JSONL (each line: {"pid": "...", "text": "...", ...})
 - Synthesize diverse, realistic search queries from the text
 - Deduplicate, shuffle, and cap to a target size
-- Write JSONL lines: {"qid": "q000001", "query": "..."}
+- Write JSONL lines: {"qid": "q000001", "query": "...", "pid": "..."}
 
 Usage:
   python scripts/make_queries_from_corpus.py \
@@ -32,18 +32,15 @@ def iter_jsonl(p):
             try:
                 yield json.loads(line)
             except Exception:
-                # skip malformed
                 continue
 
 def first_sentence(txt, max_words=14):
-    # Very simple first-sentence extractor
     sent = re.split(r"(?<=[.!?])\s+", txt.strip(), 1)[0]
     words = sent.split()
     return " ".join(words[:max_words])
 
 def normalize_text(t: str) -> str:
-    # Keep common punctuation; collapse whitespace
-    t = re.sub(r"[^A-Za-z0-9 ,:;?!'\"/\-\(\)]", " ", t)
+    t = re.sub(r"[^A-Za-z0-9 ,:;?!'\"/\\-\\(\\)]", " ", t)
     t = re.sub(r"\s+", " ", t).strip()
     return t
 
@@ -75,7 +72,6 @@ def make_candidates(text: str):
         if len(fs.split()) >= 4:
             qs.add(normalize_text(f"explain {fs}"))
 
-    # Final length filter
     out = []
     for q in qs:
         q = q.strip(" -:;,.")
@@ -86,20 +82,23 @@ def make_candidates(text: str):
 def main(corpus_path, out_path, max_per_doc=5, target_total=5000, seed=13):
     random.seed(seed)
     seen = set()
-    all_qs = []
+    all_qs = []  # will hold dicts: {"query": ..., "pid": ...}
 
     for row in iter_jsonl(corpus_path):
         text = row.get("text", "")
-        if not text:
+        pid  = row.get("pid")
+        if not text or not pid:
             continue
+
         cands = make_candidates(text)
         random.shuffle(cands)
+
         kept = 0
         for q in cands:
             if q in seen:
                 continue
             seen.add(q)
-            all_qs.append(q)
+            all_qs.append({"query": q, "pid": pid})
             kept += 1
             if kept >= max_per_doc:
                 break
@@ -108,14 +107,13 @@ def main(corpus_path, out_path, max_per_doc=5, target_total=5000, seed=13):
     if target_total and len(all_qs) > target_total:
         all_qs = all_qs[:target_total]
 
-    # Write with qid field
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
-        for i, q in enumerate(all_qs, 1):
-            row = {"qid": f"q{i:06d}", "query": q}
+        for i, item in enumerate(all_qs, 1):
+            row = {"qid": f"q{i:06d}", "query": item["query"], "pid": item["pid"]}
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-    print(f"Wrote {len(all_qs)} queries with qid → {out_path}")
+    print(f"Wrote {len(all_qs)} queries with qid+pid → {out_path}")
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()

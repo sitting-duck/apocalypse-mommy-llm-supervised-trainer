@@ -1,4 +1,24 @@
+# do not upload corpus. (training dataset is usually large and may have many large files, also giving 
+# away your dataset is giving away secret sauce, and then nothiing stops other people from recreating
+# your exact model
 external/
+
+# do not upload checkpoints (files are large and that's also your secret sauce, don't just give it away
+# they can make their own, the training code is already free
+runs/
+data/
+checkpoints/
+outputs/
+wandb/
+cache/
+*.pt
+*.bin
+*.ckpt
+*.onnx
+*.tar
+*.zip
+*.mp4
+*.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
