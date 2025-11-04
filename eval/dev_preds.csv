@@ -1,0 +1,7 @@
+query,passage,label,logit,prob,pred
+filter muddy water with cloth,"Pre-filter turbid water through a clean cloth or coffee filter to remove sediment, then disinfect by boiling or chlorination.",1,2.5687999725341797,0.9288263916969299,1
+filter muddy water with cloth,Add soil to make particles heavier so they dissolve faster.,0,-11.321175575256348,1.2113529010093771e-05,0
+treat snakebite in the field,"Keep the victim calm, immobilize the limb at heart level, remove constricting items, and evacuate. Do not cut, suck, or apply tourniquets.",1,-10.42066478729248,2.9809167244820856e-05,0
+treat snakebite in the field,Apply a tight tourniquet and cut the bite to drain venom.,0,-5.672497272491455,0.0034274777863174677,0
+find north at night using stars,"Locate the Big Dipper; the two outer bowl stars point to Polaris, which sits near true north.",1,-1.491197943687439,0.1837420016527176,0
+find north at night using stars,Face the brightest star overhead; that is always geographic north.,0,-1.2302175760269165,0.22614333033561707,0

@@ -51,11 +51,11 @@ from sentence_transformers import CrossEncoder
 model = CrossEncoder("cross_encoder_model_id")
 # Get scores for pairs of texts
 pairs = [
-    ['signal for rescue with a mirror', 'Signal is best performed at night with the mirror facing the moon for maximum intensity.'],
+    ['identify dandelion as edible plant', 'Dandelion has toothed basal leaves, hollow milky stems, and yellow composite flowers; all parts are edible. Avoid areas treated with pesticides.'],
+    ['signal for rescue with a mirror', 'Aim reflected sunlight using a sighting hole or two-finger V at the target. Three flashes is the international distress signal.'],
     ['best way to start a fire without matches', 'A ferro rod scraped with a steel striker throws hot sparks. Aim into a dry tinder bundle (cotton, birch bark, or fine grass) and blow gently until it ignites.'],
-    ['treat mild hypothermia symptoms', 'Get the person dry, insulate, shelter from wind, give warm sweet drinks if alert, and apply gentle external heat to the trunk (not extremities).'],
-    ['build a solar still for water', 'Use a metal pot without a cover and place it in shade to collect dew at noon.'],
-    ['store water long term bleach ratio', 'Use vinegar instead of bleach; acidity guarantees sterility for years.'],
+    ['tie a bowline knot', 'Spin the rope clockwise until it tangles; that’s a bowline.'],
+    ['tie a bowline knot', 'Make a small loop, pass the working end up through the loop (‘the rabbit out of the hole’), around the standing part (‘around the tree’), and back down the loop.'],
 ]
 scores = model.predict(pairs)
 print(scores.shape)
@@ -63,13 +63,13 @@ print(scores.shape)
 
 # Or rank different texts based on similarity to a single text
 ranks = model.rank(
-    'signal for rescue with a mirror',
+    'identify dandelion as edible plant',
     [
-        'Signal is best performed at night with the mirror facing the moon for maximum intensity.',
+        'Dandelion has toothed basal leaves, hollow milky stems, and yellow composite flowers; all parts are edible. Avoid areas treated with pesticides.',
+        'Aim reflected sunlight using a sighting hole or two-finger V at the target. Three flashes is the international distress signal.',
         'A ferro rod scraped with a steel striker throws hot sparks. Aim into a dry tinder bundle (cotton, birch bark, or fine grass) and blow gently until it ignites.',
-        'Get the person dry, insulate, shelter from wind, give warm sweet drinks if alert, and apply gentle external heat to the trunk (not extremities).',
-        'Use a metal pot without a cover and place it in shade to collect dew at noon.',
-        'Use vinegar instead of bleach; acidity guarantees sterility for years.',
+        'Spin the rope clockwise until it tangles; that’s a bowline.',
+        'Make a small loop, pass the working end up through the loop (‘the rabbit out of the hole’), around the standing part (‘around the tree’), and back down the loop.',
     ]
 )
 # [{'corpus_id': ..., 'score': ...}, {'corpus_id': ..., 'score': ...}, ...]
@@ -127,9 +127,9 @@ You can finetune this model on your own dataset.
 * Samples:
   | sentence_0                                            | sentence_1                                                                                                                                                                  | label            |
   |:------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|
-  | <code>signal for rescue with a mirror</code>          | <code>Signal is best performed at night with the mirror facing the moon for maximum intensity.</code>                                                                       | <code>0.0</code> |
+  | <code>identify dandelion as edible plant</code>       | <code>Dandelion has toothed basal leaves, hollow milky stems, and yellow composite flowers; all parts are edible. Avoid areas treated with pesticides.</code>               | <code>1.0</code> |
+  | <code>signal for rescue with a mirror</code>          | <code>Aim reflected sunlight using a sighting hole or two-finger V at the target. Three flashes is the international distress signal.</code>                                | <code>1.0</code> |
   | <code>best way to start a fire without matches</code> | <code>A ferro rod scraped with a steel striker throws hot sparks. Aim into a dry tinder bundle (cotton, birch bark, or fine grass) and blow gently until it ignites.</code> | <code>1.0</code> |
-  | <code>treat mild hypothermia symptoms</code>          | <code>Get the person dry, insulate, shelter from wind, give warm sweet drinks if alert, and apply gentle external heat to the trunk (not extremities).</code>               | <code>1.0</code> |
 * Loss: [<code>FitMixinLoss</code>](https://sbert.net/docs/package_reference/cross_encoder/losses.html#fitmixinloss)
 
 ### Training Hyperparameters

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "moredata": { "model_path": "runs/modelA_miniLM_moredata", "threshold": 0.185 },
+    "e3_w500":  { "model_path": "runs/modelA_miniLM_e3_w500",  "threshold": 0.235 },
+    "bm25neg":  { "model_path": "runs/modelA_miniLM_e2_bm25neg","threshold": 0.505 }
+  },
+  "default": "bm25neg"
+}
+
